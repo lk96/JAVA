@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+<!-- 单例 - 每个Spring IoC 容器返回一个bean实例 -->
+<!-- 原型- 当每次请求时返回一个新的bean实例 -->
+<!-- 请求 - 返回每个HTTP请求的一个Bean实例 -->
+<!-- 会话 - 返回每个HTTP会话的一个bean实例 -->
+<!-- 全局会话- 返回全局HTTP会话的一个bean实例 -->
+                        
+                        
+<!--   单例例子 -->
+   <bean id="customerService" class="com.inspur.beanscope.CustomerService" /> 
+<!--   原型例子 在原型作用域，必须为每个 getBean()方法中调用返回一个新的实例 -->
+<!--   <bean id="customerService" class="com.inspur.beanscope.CustomerService"  -->
+<!--          scope="prototype"/> -->
+<!--          CustomerService2 启用自动组件扫描-->
+         <context:component-scan base-package="com.inspur.beanscope" />
+         
+</beans>

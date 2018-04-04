@@ -1,0 +1,48 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+<property name="format_sql">true</property>
+	<!-- 指定映射文件的路径 -->
+	<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+	<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property> 
+	<property name="connection.url">
+		jdbc:oracle:thin:@localhost:1521:inspur
+	</property>
+	<property name="connection.username">scott</property>
+	<property name="connection.password">tiger</property>
+	<property name="connection.driver_class">
+		oracle.jdbc.driver.OracleDriver
+	</property>
+<!-- 	单向关联 
+	<mapping class="onetoone_fk.Students"/>
+	<mapping class="onetoone_fk.IdCard"/>
+	-->
+<!-- 	双向关联
+	<mapping class="onetoone_bfk.Students"/>
+	<mapping class="onetoone_bfk.IdCard"/>
+	 -->
+<!-- 	 多对一 
+	 <mapping class="manytoone_fk.Students"/>
+	<mapping class="manytoone_fk.ClassRoom"/>
+	-->
+<!-- 	一对多
+	  <mapping class="onetomany_fk.Students"/>
+	<mapping class="onetomany_fk.ClassRoom"/>
+	 -->
+<!-- 	 一对多双向关联
+	  <mapping class="onetomany_bfk.Students"/>
+	<mapping class="onetomany_bfk.ClassRoom"/>
+	 -->
+<!-- 	 多对多
+	 <mapping class="manytomany_fk.Students"/>
+	<mapping class="manytomany_fk.Teachers"/>
+	 -->
+	 <mapping class="manytomany_bfk.Students"/>
+	<mapping class="manytomany_bfk.Teachers"/>
+</session-factory>
+</hibernate-configuration>

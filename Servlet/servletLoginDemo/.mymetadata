@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="servletLoginDemo"
+  id="myeclipse.1520661873735"
+  context-root="/servletLoginDemo"
+  j2ee-spec="6.0"
+  archive="servletLoginDemo.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

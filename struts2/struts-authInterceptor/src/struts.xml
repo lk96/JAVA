@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+<!-- 		注册拦截器 -->
+	<interceptors>
+		<interceptor name="auth" class="com.inspur.interceptor.AuthInterceptor"></interceptor>
+<!-- 		自定义拦截器栈myStack，组合了defaultStack和auth -->
+	<!-- 	<interceptor-stack name="myStack">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="auth"></interceptor-ref>
+		</interceptor-stack>
+	 -->
+	</interceptors>
+		
+		
+		
+<!-- 		通过此Action访问后台管理页面 ，需要判断用户是否已登录，如果未登录则跳转到登录页面-->
+		<action name="auth">
+			<result>/WEB-INF/page/manager.jsp</result>
+<!-- 			引用自定义的拦截器栈 -->
+			<result name="login">/login.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="auth"></interceptor-ref>
+		</action>
+	<action name="login" class="com.inspur.action.LoginAction" method="login">
+		<result name="success">/WEB-INF/page/manager.jsp</result>
+		<result name="error">/login.jsp</result>
+	</action>
+	
+	
+	
+	</package>
+	
+	
+	
+</struts>    

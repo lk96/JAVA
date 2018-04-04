@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hql"
+  id="myeclipse.1522735680631"
+  context-root="/hql"
+  j2ee-spec="6.0"
+  archive="hql.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

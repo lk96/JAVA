@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="default" namespace="/" extends="struts-default">
+		<default-action-ref name="index"></default-action-ref>
+		<action name="index">
+			<result>/error.jsp</result>
+		</action>
+		
+		<!--method动态Action -->
+		<!-- http://localhost:8080/HelloWorld/updateAction.action -->
+		<!-- <action name="helloworld" class="com.inspur.action.HelloWorldAction"> 
+			<result>/result.jsp</result> </action> <action name="addAction" method="add" 
+			class="com.inspur.action.HelloWorldAction"> <result>/add.jsp</result> </action> 
+			<action name="updateAction" method="add" class="com.inspur.action.HelloWorldAction"> 
+			<result>/update.jsp</result> </action> -->
+
+		<!-- 感叹号方式动态Action -->
+		<!-- http://localhost:8080/HelloWorld/helloworld!add.action -->
+		<!--<action name="helloworld" class="com.inspur.action.HelloWorldAction"> 
+			<result>/result.jsp</result> <result name="add">/add.jsp</result> <result 
+			name="update">/update.jsp</result> </action> -->
+		<action name="helloworld_*" method="{1}"
+			class="com.inspur.action.HelloWorldAction">
+			<result>/result.jsp</result>
+			<result name="add">/{1}.jsp</result>
+			<result name="update">/{1}.jsp</result>
+		</action>
+		
+		
+		
+		<action name="LoginAction" method="login"
+			class="com.inspur.action.LoginAction">
+			<result>/success.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	</package>
+	
+</struts>

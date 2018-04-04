@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+<property name="format_sql">true</property>
+	<!-- 指定映射文件的路径 -->
+	<property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+	<property name="connection.url">
+		jdbc:oracle:thin:@localhost:1521:inspur
+	</property>
+	<property name="connection.username">scott</property>
+	<property name="connection.password">tiger</property>
+	<property name="connection.driver_class">
+		oracle.jdbc.driver.OracleDriver
+	</property>
+	<mapping resource="com/inspur/entity/Employee.hbm.xml" />
+	
+</session-factory>
+</hibernate-configuration>

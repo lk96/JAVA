@@ -1,0 +1,24 @@
+CREATE TABLE imooc_goddess (
+  id number NOT NULL ,
+  user_name varchar2(30) NOT NULL,
+  sex number DEFAULT NULL,
+  age number DEFAULT NULL,
+  birthday date DEFAULT NULL,
+  email varchar2(30) DEFAULT NULL,
+  mobile varchar2(11) DEFAULT NULL,
+  create_user varchar2(30) DEFAULT NULL,
+  create_date date DEFAULT NULL,
+  update_user varchar2(30) DEFAULT NULL,
+  update_date date DEFAULT NULL,
+  isdel number DEFAULT NULL,
+  PRIMARY KEY (id)
+) 
+INSERT INTO userinfo VALUES ('2', 'ÀîËÄ', '1', '22', sysdate , 'lisi@163.com', '13911111111', 'ADMIN', sysdate, 'ADMIN', sysdate, '0');
+CREATE SEQUENCE   "DEPARTMENT_SEQ"  MINVALUE 1 MAXVALUE 9999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE
+CREATE OR REPLACE TRIGGER INSERT_DEPARTMENT
+BEFORE
+insert on userinfo
+for each row
+begin
+select DEPARTMENT_SEQ.nextval into :NEW.id from dual;
+end;

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<!--
+none – 没有依赖检查，这是默认的模式。
+simple – 如果基本类型(int, long,double…)和集合类型(map, list..)的任何属性都没有设置，UnsatisfiedDependencyException将被抛出。
+objects – 如果对象类型的任何属性都没有设置，UnsatisfiedDependencyException将被抛出。
+all – 如果任何类型的任何属性都没有被设置，UnsatisfiedDependencyException将被抛出。
+ 默认模式是 none
+  -->
+  
+<!--   none 依赖检查 -->
+	<bean id="CustomerBean" class="com.inspur.check.Customer" >
+		<property name="action" value="buy" />
+	</bean>
+
+	<bean id="PersonBean" class="com.inspur.check.Person">
+		<property name="name" value="yiibai" />
+		<property name="address" value="address ABC" />
+		<property name="age" value="29" />
+	</bean>
+<!-- simple 依赖检查 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="CustomerBean" class="com.yiibai.common.Customer" 
+         dependency-check="simple">
+
+		<property name="person" ref="PersonBean" />
+		<property name="action" value="buy" />
+	</bean>
+
+	<bean id="PersonBean" class="com.inspur.check.Person">
+		<property name="name" value="yiibai" />
+		<property name="address" value="address ABC" />
+		<property name="age" value="29" />
+	</bean>
+
+</beans>
+<!-- objects 依赖检查 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="CustomerBean" class="com.inspur.check.Customer" 
+         dependency-check="objects">
+
+		<property name="action" value="buy" />
+		<property name="type" value="1" />
+	</bean>
+
+	<bean id="PersonBean" class="com.inspur.check.Person">
+		<property name="name" value="yiibai" />
+		<property name="address" value="address ABC" />
+		<property name="age" value="29" />
+	</bean>
+	
+</beans>
+<!-- all 依赖检查 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="CustomerBean" class="com.inspur.check.Customer" 
+         dependency-check="all">
+
+		<property name="action" value="buy" />
+	</bean>
+
+	<bean id="PersonBean" class="com.inspur.check.Person">
+		<property name="name" value="yiibai" />
+		<property name="address" value="address ABC" />
+		<property name="age" value="29" />
+	</bean>
+
+</beans>
+<!-- 全局默认的依赖检查 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd" 
+	default-dependency-check="all">
+
+	<bean id="CustomerBean" class="com.inspur.check.Customer">
+		<property name="action" value="buy" />
+		<property name="type" value="1" />
+	</bean>
+
+	<bean id="PersonBean" class="com.inspur.check.Person">
+		<property name="name" value="yiibai" />
+		<property name="address" value="address ABC" />
+		<property name="age" value="29" />
+	</bean>
+	
+</beans>
+</beans>

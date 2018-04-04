@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<include file="helloworld.xml"></include>
+<!-- 	设置后缀名 -->
+<!-- 	<constant name="struts.action.extension" value="html"></constant> -->
+	<!-- 感叹号方式动态Action开启 -->
+<!-- 	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> -->
+	<!-- 通配符方式 -->
+<!-- 	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant> -->
+</struts>    

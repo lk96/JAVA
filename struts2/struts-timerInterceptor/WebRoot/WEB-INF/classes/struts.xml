@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- 注册拦截器 -->
+
+		<interceptors>
+			<interceptor name="mytimer"
+				class="com.inspur.interceptor.TimerInterceptor"></interceptor>
+
+		</interceptors>
+		<action name="timer" class="com.inspur.action.TimerAction">
+			<result>/success.jsp</result>
+<!-- 			为Action显示引用拦截器后，默认的拦截站defaultStack不再生效 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			
+			<!-- 引用拦截器 -->
+			<interceptor-ref name="mytimer"></interceptor-ref>
+		</action>
+
+
+
+
+
+
+	</package>
+</struts>  

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+    <bean id="CustomerBean" class="com.inspur.inside.Customer">
+		<property name="person" ref="PersonBean" />
+	</bean>
+
+	<bean id="PersonBean" class="com.inspur.inside.Person">
+		<property name="name" value="zhangsan" />
+		<property name="address" value="address1" />
+		<property name="age" value="28" />
+	</bean>
+<!--   <bean id="CustomerBean" class="com.inspur.inside.Customer"> -->
+<!-- 		<property name="person"> -->
+<!-- 			<bean class="com.inspur.inside.Person"> -->
+<!-- 				<property name="name" value="yiibai" /> -->
+<!-- 				<property name="address" value="address1" /> -->
+<!-- 				<property name="age" value="28" /> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- <bean id="CustomerBean" class="com.inspur.inside.Customer"> -->
+<!-- 		<constructor-arg> -->
+<!-- 			<bean class="com.inspur.inside.Person"> -->
+<!-- 				<property name="name" value="yiibai" /> -->
+<!-- 				<property name="address" value="address1" /> -->
+<!-- 				<property name="age" value="28" /> -->
+<!-- 			</bean> -->
+<!-- 		</constructor-arg> -->
+<!-- 	</bean> -->
+</beans>

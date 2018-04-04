@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.inspur.entity.Students" table="students">
+		<id name="sid" column="sid" type="java.lang.Integer">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="sname" type="java.lang.String">
+			<column name="sname" length="20" not-null="true"></column>
+		</property>
+		<property name="gender" type="java.lang.String">
+			<column name="gender"></column>
+		</property>
+		<property name="birthday" type="java.util.Date">
+			<column name="birthday"></column>
+		</property>
+		<!-- <property name="address" type="java.lang.String"> -->
+		<!-- <column name="address"></column> -->
+		<!-- </property> -->
+		<component name="address" class="com.inspur.entity.Address">
+
+			<property name="postcode" column="postcode"></property>
+			<property name="phone" column="phone"></property>
+			<property name="address" column="address"></property>
+		</component>
+		<property name="picture" type="java.sql.Blob">
+			<column name="picture"></column>
+		</property>
+	</class>
+</hibernate-mapping>
